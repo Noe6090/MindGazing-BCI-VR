@@ -1,0 +1,47 @@
+{
+	"version": 1,
+	"changelists": [
+		{
+			"guid": "00000000000000000000000000000000",
+			"description": "Default Uncontrolled Changelist",
+			"files": [
+				"C:/Users/Noelia/Documents/RP_UnrealEngine/ShellGameVR/Content/VRTemplate/Maps/VRTemplateMap.umap",
+				"C:/Users/Noelia/Documents/RP_UnrealEngine/ShellGameVR/Content/Flickers_ToImport/Materials/M_Flicker.uasset",
+				"C:/Users/Noelia/Documents/RP_UnrealEngine/ShellGameVR/Content/Flickers_ToImport/Blueprints/BP_CupsDynamic.uasset",
+				"C:/Users/Noelia/Documents/RP_UnrealEngine/ShellGameVR/Content/Flickers_ToImport/Blueprints/BP_CalibrationDYNAMIC.uasset",
+				"C:/Users/Noelia/Documents/RP_UnrealEngine/ShellGameVR/Content/Flickers_ToImport/Blueprints/BP_FlickerManager.uasset",
+				"C:/Users/Noelia/Documents/RP_UnrealEngine/ShellGameVR/Content/Flickers_ToImport/Blueprints/BP_LSL.uasset",
+				"C:/Users/Noelia/Documents/RP_UnrealEngine/ShellGameVR/Content/Flickers_ToImport/Blueprints/BP_ChooseWhateverCupDYNAMIC.uasset",
+				"C:/Users/Noelia/Documents/RP_UnrealEngine/TestingVR/Content/StarterContent/Architecture/Floor_400x400.uasset",
+				"C:/Users/Noelia/Documents/RP_UnrealEngine/TestingVR/Content/VRTemplate/Maps/VRTemplateMap.umap",
+				"C:/Users/Noelia/Documents/RP_UnrealEngine/TestingVR/Content/Flickers_ToImport/Blueprints/BP_LSL.uasset",
+				"C:/Users/Noelia/Documents/RP_UnrealEngine/TestingVR/Content/Flickers_ToImport/Blueprints/BP_CalibrationDYNAMIC.uasset",
+				"C:/Users/Noelia/Documents/RP_UnrealEngine/TestingVR/Content/Flickers_ToImport/Materials/M_Flicker20241210.uasset",
+				"C:/Users/Noelia/Documents/RP_UnrealEngine/TestingVR/Content/Flickers_ToImport/Blueprints/BP_CupsDynamic.uasset",
+				"C:/Users/Noelia/Documents/RP_UnrealEngine/TestingVR/Content/VRTemplate/Maps/VRTemplateMap_BuiltData.uasset",
+				"C:/Users/Noelia/Documents/RP_UnrealEngine/TestingVR/Content/Flickers_ToImport/Blueprints/FlickerManager.uasset",
+				"C:/Users/Noelia/Documents/RP_UnrealEngine/TestingVR/Content/Flickers_ToImport/Materials/RickerTextureAlpha.uasset",
+				"C:/Users/Noelia/Documents/RP_UnrealEngine/TestingVR/Content/Flickers_ToImport/Blueprints/BP_FlickerManager.uasset",
+				"C:/Users/Noelia/Documents/RP_UnrealEngine/TestingVR/Content/Flickers_ToImport/Blueprints/BP_ChooseWhateverCupDYNAMIC.uasset",
+				"C:/Users/Noelia/Documents/RP_UnrealEngine/TestingVR/Content/Flickers_ToImport/Structures/Struct_FlickerSequence.uasset",
+				"C:/Users/Noelia/Documents/RP_UnrealEngine/TestingVR/Content/Flickers_ToImport/Structures/Struct_ArrayPercptionData.uasset",
+				"C:/Users/Noelia/Documents/RP_UnrealEngine/TestingVR/Content/Flickers_ToImport/Structures/Struct_PerceptionData.uasset",
+				"C:/Users/Noelia/Documents/RP_UnrealEngine/TestingVR/Content/Flickers_ToImport/Structures/Struct_PerceptionData1.uasset",
+				"C:/Users/Noelia/Documents/RP_UnrealEngine/TestingVR/Content/Flickers_ToImport/Materials/M_Flicker.uasset",
+				"C:/Users/Noelia/Documents/RP_UnrealEngine/TestingVR/Content/Flickers_ToImport/Materials/M_Solid_Green1.uasset",
+				"C:/Users/Noelia/Documents/RP_UnrealEngine/TestingVR/Content/Flickers_ToImport/Materials/M_Solid_Red1.uasset",
+				"C:/Users/Noelia/Documents/RP_UnrealEngine/TestingVR/Content/Flickers_ToImport/Structures/Struct_TagMeshComponents.uasset",
+				"C:/Users/Noelia/Documents/RP_UnrealEngine/TestingVR/Content/Flickers_ToImport/MAP/FirstPersonMap_BuiltData.uasset",
+				"C:/Users/Noelia/Documents/RP_UnrealEngine/TestingVR/Content/Flickers_ToImport/Materials/Rickers/RickerTextureAlpha.uasset",
+				"C:/Users/Noelia/Documents/RP_UnrealEngine/TestingVR/Content/Flickers_ToImport/Materials/Rickers/Ricker_S1080x1920_PC4000_A0_2_PCS20x10_G2_0+alpha.uasset",
+				"C:/Users/Noelia/Documents/RP_UnrealEngine/TestingVR/Content/Flickers_ToImport/Materials/Rickers/ricker4.uasset",
+				"C:/Users/Noelia/Documents/RP_UnrealEngine/TestingVR/Content/Flickers_ToImport/Materials/Rickers/ricker3.uasset",
+				"C:/Users/Noelia/Documents/RP_UnrealEngine/TestingVR/Content/Flickers_ToImport/Materials/Rickers/ricker2.uasset",
+				"C:/Users/Noelia/Documents/RP_UnrealEngine/TestingVR/Content/Flickers_ToImport/Materials/Rickers/ricker1.uasset",
+				"C:/Users/Noelia/Documents/RP_UnrealEngine/TestingVR/Content/Flickers_ToImport/Materials/Rickers/manteniendo_colores.uasset",
+				"C:/Users/Noelia/Documents/RP_UnrealEngine/TestingVR/Content/Flickers_ToImport/MAP/FirstPersonMap.umap",
+				"C:/Users/Noelia/Documents/RP_UnrealEngine/TestingVR/Content/Flickers_ToImport/Structures/Struct_BlinkSequence.uasset"
+			]
+		}
+	]
+}
