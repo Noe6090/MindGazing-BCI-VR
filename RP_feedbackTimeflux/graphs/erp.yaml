@@ -1,0 +1,59 @@
+graphs:
+
+- id: ERP
+  nodes:
+  - id: sub
+    module: timeflux.nodes.zmq
+    class: Sub
+    params:
+      topics: [filtered, events]
+  - id: epoch_erp
+    module: nodes.epoch
+    class: Samples
+    params:
+      trigger: epoch
+      length: {{ ERP_LENGTH }}
+      offset: {{ OFFSET }}
+  - id: accumulate_epochs
+    module: nodes.accumulation.erp
+    class: ERP
+    params:
+      buffer_size: {{ ERP_BUFFER_SIZE }}
+      verbose: {{ERP_VERBOSE}}
+      meta_label: [epoch, context, bit]
+      target_label: 1
+      non_target_label : 0
+      event_start_accumulation: calibration_begins
+      event_stop_accumulation: calibration_ends
+      sliding_window: {{ERP_SLIDING_WINDOW}}
+  - id: pub_erp
+    module: timeflux.nodes.zmq
+    class: Pub
+    params:
+      topic: erp
+  - id: pub_erp_non_target
+    module: timeflux.nodes.zmq
+    class: Pub
+    params:
+      topic: erp_non_target
+  - id: pub_erp_sliding
+    module: timeflux.nodes.zmq
+    class: Pub
+    params:
+      topic: erp_sliding
+  edges:
+    - source: sub:filtered
+      target: epoch_erp
+    - source: sub:events
+      target: epoch_erp:events
+    - source: sub:events
+      target: accumulate_epochs:events
+    - source: epoch_erp:*
+      target: accumulate_epochs
+    - source: accumulate_epochs
+      target: pub_erp
+    - source: accumulate_epochs:non_target
+      target: pub_erp_non_target
+    - source: accumulate_epochs:sliding
+      target: pub_erp_sliding
+  rate: 10

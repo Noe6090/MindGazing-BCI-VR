@@ -1,0 +1,20 @@
+graphs:
+
+  - id: EEG
+    nodes:
+    - id: eeg
+      module: timeflux.nodes.lsl
+      class: Receive
+      params:
+        prop: name
+        value: {{ENOBIO_LSL_STREAM_NAME}}
+        channels: [{{ CHANNELS }}]
+    - id: pub
+      module: timeflux.nodes.zmq
+      class: Pub
+      params:
+        topic: raw
+    edges:
+      - source: eeg
+        target: pub
+    rate: 500

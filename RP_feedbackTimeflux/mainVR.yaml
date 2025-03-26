@@ -1,0 +1,150 @@
+import:
+  # Device graph : sensor
+  - graphs/{{DEVICE}}.yaml
+  # Preprocessing graph
+  - graphs/preprocessing.yaml
+  # Classification graph
+  - graphs/classification_md_plot.yaml
+  # graphs/classification.yaml
+  # ERP computation graph
+  - graphs/erp.yaml
+  # Record graph
+  {% if RECORD_DATA == 'true' %}
+  - graphs/record.yaml
+  {% endif %}
+graphs:
+
+  # Broker node
+  - id: Broker
+    nodes:
+    - id: proxy
+      module: timeflux.nodes.zmq
+      class: Broker
+
+  # VR Graph
+  - id: VR
+    nodes:    
+    - id: dataframesMerge
+      module: nodes.VR.data_utils
+      class: DataframeMerge
+      params: 
+        df1: {% for CODE in CALIBRATION_CODES.split() %}
+                - "{{CODE}}"
+              {% endfor %}
+        df2: {% for CODE in TASK_CODES.split() %}
+                - "{{CODE}}"
+              {% endfor %}
+
+    
+    - id: subVR
+      module: timeflux.nodes.zmq
+      class: Sub
+      params:
+        topics: [filtered, predictions , events]
+    
+
+    - id: lsl_outlet_codes
+      module: timeflux.nodes.lsl
+      class: Send
+      params:
+        name: TimefluxSendsCodes
+        type: Event
+        format: string
+        rate: 1.0  
+        source: my_source
+        config_path: null 
+    
+    - id: lsl_outlet_preds
+      module: timeflux.nodes.lsl
+      class: Send
+      params:
+        name: TimefluxSendsPreds
+        type: Event
+        format: string
+        rate: 1.0 
+        source: my_source
+        config_path: null
+
+    - id: lsl_outlet_events
+      module: timeflux.nodes.lsl
+      class: Send
+      params:
+        name: TimefluxSendsEvents
+        type: Event
+        format: string
+        rate: 1.0
+        source: my_source
+        config_path: null
+    
+    - id: lsl_inlet_epochs
+      module: timeflux.nodes.lsl
+      class: Receive
+      params:
+        prop: name
+        value: VRSends_epochs
+        timeout: 1.0 
+        channels: null
+        max_samples: 1024 
+        clocksync: true
+        dejitter: false
+        monotonize: true
+        threadsafe: true
+        config_path: null
+
+    - id: lsl_inlet_targetChange  
+      module: timeflux.nodes.lsl
+      class: Receive
+      params:
+        prop: name
+        value: VRSends_targetChange
+        timeout: 1.0 
+        channels: null
+        max_samples: 1024 
+        clocksync: true
+        dejitter: false
+        monotonize: true
+        threadsafe: true
+        config_path: null
+
+    - id: modifyData_epochs
+      module: nodes.VR.data_utils
+      class: StringToDictionary_epochs
+
+    - id: pubVR_epochs
+      module: timeflux.nodes.zmq
+      class: Pub
+      params:
+        topic: events
+
+    - id: modifyData_targetChange 
+      module: nodes.VR.data_utils
+      class: StringToDictionary_targetChange
+
+    - id: pubVR_targetChange    
+      module: timeflux.nodes.zmq
+      class: Pub
+      params:
+        topic: targetChange
+      
+    - id: debug
+      module: nodes.VR.debug
+      class: DebugNode    
+
+
+    edges: 
+      - source: dataframesMerge
+        target: lsl_outlet_codes 
+      - source: subVR:predictions
+        target: lsl_outlet_preds    
+      - source: subVR:events
+        target: lsl_outlet_events
+      - source: lsl_inlet_epochs
+        target: modifyData_epochs      
+      - source: modifyData_epochs
+        target: pubVR_epochs
+      - source: lsl_inlet_targetChange    
+        target: modifyData_targetChange      
+      - source: modifyData_targetChange   
+        target: pubVR_targetChange        
+    rate: 20
+  

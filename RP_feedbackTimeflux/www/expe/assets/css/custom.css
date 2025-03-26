@@ -1,0 +1,39 @@
+.target {
+	/* Override default here */
+}
+
+.target.on {
+	/* Override default here */
+}
+
+.target.off {
+	/* Override default here */
+}
+
+.target.cue {
+	/* Override default here */
+}
+
+.target.lock {
+	/* Override default here */
+	border: 3px solid var(--target-border-color);
+}
+
+.target.success {
+    border: 3px solid var(--target-border-color);
+	color: var(--target-border-color);
+}
+
+.target.failure {
+    border: 3px solid var(--target-border-color);
+	color: var(--target-border-color);
+}
+
+#layout-keyboard {
+	aspect-ratio: 1 / 1;
+}
+
+.best-target {
+	border: var(--best-target-border-width,3px) solid var(--best-target-border-color,black);
+	/* color: var(--best-target-border-color, black) !important; */            
+}
